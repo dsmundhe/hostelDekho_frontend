@@ -34,7 +34,7 @@ const HostelManagementPage = () => {
   const fetchHostels = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get("https://hoste-dekho-backend.vercel.app/hostel/hostelsList");
+      const response = await axios.get("https://hostel-dekho-backend.vercel.app/hostel/hostelsList");
       setHostels(response.data.hostels || []);
     } catch (error) {
       console.error("Error fetching hostels:", error);
@@ -53,7 +53,7 @@ const HostelManagementPage = () => {
         },
       };
       const response = await axios.post(
-        "https://hoste-dekho-backend.vercel.app/hostel/register",
+        "https://hostel-dekho-backend.vercel.app/hostel/register",
         newHostel,
         config
       );
@@ -78,7 +78,7 @@ const HostelManagementPage = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        `https://hoste-dekho-backend.vercel.app/hostel/hostelbycity/${search}`
+        `https://hostel-dekho-backend.vercel.app/hostel/hostelbycity/${search}`
       );
       setHostels(response.data.hostels || []);
     } catch (error) {

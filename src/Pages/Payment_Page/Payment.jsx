@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
   try {
     // Send booking data to backend
     const res = await axios.post(
-      "https://hoste-dekho-backend.vercel.app/user/booking",
+      "https://hostel-dekho-backend.vercel.app/user/booking",
       {
         name: data.name,
         price: data.price,

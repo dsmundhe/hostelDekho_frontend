@@ -40,7 +40,7 @@ const ProfilePage = () => {
       // Name
       if (form.name !== user.name) {
         await axios.patch(
-          "https://hoste-dekho-backend.vercel.app/user/editname",
+          "https://hostel-dekho-backend.vercel.app/user/editname",
           { email: user.email, newName: form.name },
           { headers: { Authorization: token } }
         );
@@ -49,7 +49,7 @@ const ProfilePage = () => {
       // Email
       if (form.email !== user.email) {
         await axios.patch(
-          "https://hoste-dekho-backend.vercel.app/user/editemail",
+          "https://hostel-dekho-backend.vercel.app/user/editemail",
           { email: user.email, newEmail: form.email },
           { headers: { Authorization: token } }
         );
@@ -58,7 +58,7 @@ const ProfilePage = () => {
       // Password
       if (form.password) {
         await axios.patch(
-          "https://hoste-dekho-backend.vercel.app/user/editpassword",
+          "https://hostel-dekho-backend.vercel.app/user/editpassword",
           { email: form.email, newPassword: form.password },
           { headers: { Authorization: token } }
         );
@@ -90,7 +90,7 @@ const ProfilePage = () => {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete("https://hoste-dekho-backend.vercel.app/user/delete", {
+      await axios.delete("https://hostel-dekho-backend.vercel.app/user/delete", {
         headers: { Authorization: token },
         data: { email: user.email },
       });
