@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button } from "@/components/ui/button";
 import LoaderTwo from "../Loader/LoaderTwo";
 
 const ProfilePage = () => {
@@ -178,34 +177,34 @@ const ProfilePage = () => {
         <div className="mt-8 flex gap-4 flex-wrap justify-center">
           {!editing ? (
             <>
-              <Button
+              <button
                 onClick={handleEdit}
                 className="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-blue-700"
               >
                 Edit Profile
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={handleLogout}
                 className="bg-yellow-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-yellow-700"
               >
                 Logout
-              </Button>
+              </button>
               <Link to="/bookings">
                 {" "}
-                <Button className="bg-red-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-red-700">
+                <button className="bg-red-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-red-700">
                   My Bookings
-                </Button>
+                </button>
               </Link>
             </>
           ) : (
             <>
-              <Button
+              <button
                 onClick={handleSave}
                 className="bg-green-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-green-700"
               >
                 Save Changes
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={() => {
                   setEditing(false);
                   setForm({ name: user.name, email: user.email, password: "" });
@@ -213,7 +212,7 @@ const ProfilePage = () => {
                 className="bg-gray-600 text-white px-6 py-3 rounded-xl shadow-md transition hover:bg-gray-700"
               >
                 Cancel
-              </Button>
+              </button>
             </>
           )}
         </div>

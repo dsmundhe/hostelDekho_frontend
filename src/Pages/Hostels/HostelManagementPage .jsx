@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 import { FaSearch, FaPlusCircle } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +14,7 @@ const HostelManagementPage = () => {
 
   const [hostels, setHostels] = useState([]);
   const [search, setSearch] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Added loader state
+  const [isLoading, setIsLoading] = useState(false);
   const [newHostel, setNewHostel] = useState({
     name: "",
     city: "",
@@ -37,7 +35,6 @@ const HostelManagementPage = () => {
       const response = await axios.get("https://hostel-dekho-backend.vercel.app/hostel/hostelsList");
       setHostels(response.data.hostels || []);
     } catch (error) {
-      console.error("Error fetching hostels:", error);
       toast.error("Failed to fetch hostels");
     } finally {
       setIsLoading(false);
@@ -57,7 +54,6 @@ const HostelManagementPage = () => {
         newHostel,
         config
       );
-
       toast.success(response.data.msg);
       setNewHostel({
         name: "",
@@ -90,7 +86,7 @@ const HostelManagementPage = () => {
 
   return (
     <div className="homebox p-8 bg-gray-50 min-h-screen">
-      {/* Hero Section */}
+      {/* Heading */}
       <section className="text-center mb-12 mt-14">
         <h1 className="text-4xl font-extrabold text-blue-600 mb-4">
           Hostel Management
@@ -110,24 +106,24 @@ const HostelManagementPage = () => {
             onChange={(e) => setSearch(e.target.value)}
             className="flex-1 px-5 py-3 rounded-md border border-gray-300 shadow focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 text-sm sm:text-base"
           />
-          <Button
+          <button
             onClick={searchHostels}
             className="bg-blue-600 text-white px-5 py-3 rounded-md shadow-md flex items-center justify-center hover:bg-blue-700 hover:scale-105 transition-all duration-300"
           >
             <FaSearch className="w-5 h-5" />
-          </Button>
+          </button>
         </div>
 
         <div className="flex justify-center lg:justify-start w-full lg:w-auto">
-          {(user != undefined && user.userType) == "admin" ? (
-            <Button
+          {(user != undefined && user.userType) === "admin" && (
+            <button
               onClick={() => setIsModalOpen(true)}
               className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white text-sm sm:text-base rounded-md shadow-md hover:bg-green-700 hover:scale-105 transition-all duration-300"
             >
               <FaPlusCircle className="w-7 h-7" />
               Register Hostel
-            </Button>
-          ) : null}
+            </button>
+          )}
         </div>
       </div>
 
@@ -139,11 +135,11 @@ const HostelManagementPage = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {hostels.map((hostel, index) => (
-            <Card
+            <div
               key={index}
-              className="shadow-xl rounded-3xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+              className="shadow-xl rounded-3xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl bg-white"
             >
-              <CardContent className="p-6">
+              <div className="p-6">
                 <h2 className="text-2xl font-semibold text-blue-600 mb-2 truncate">
                   {hostel.name}
                 </h2>
@@ -151,12 +147,10 @@ const HostelManagementPage = () => {
                   City: <span className="font-semibold">{hostel.city}</span>
                 </p>
                 <p className="text-gray-700 text-sm mb-2">
-                  College:{" "}
-                  <span className="font-semibold">{hostel.college}</span>
+                  College: <span className="font-semibold">{hostel.college}</span>
                 </p>
                 <p className="text-gray-700 text-sm mb-2">
-                  Contact:{" "}
-                  <span className="font-semibold">{hostel.contact}</span>
+                  Contact: <span className="font-semibold">{hostel.contact}</span>
                 </p>
                 {hostel.price && (
                   <p className="text-gray-700 text-sm mb-4">
@@ -174,14 +168,13 @@ const HostelManagementPage = () => {
                   <Link
                     to="/showhostel"
                     onClick={() => dispatch(addCart(hostel))}
+                    className="bg-blue-600 text-white text-sm p-2 px-4 rounded-lg hover:bg-blue-700 transition"
                   >
-                    <Button className="bg-blue-600 text-white text-sm p-2 rounded-lg hover:bg-blue-700">
-                      View Details
-                    </Button>
+                    View Details
                   </Link>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       )}
@@ -210,24 +203,23 @@ const HostelManagementPage = () => {
               )}
             </div>
             <div className="mt-6 flex justify-between">
-              <Button
+              <button
                 onClick={registerHostel}
                 className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
               >
                 Submit
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700"
               >
                 Cancel
-              </Button>
+              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Toasts */}
       <ToastContainer position="top-right" autoClose={4000} />
     </div>
   );
