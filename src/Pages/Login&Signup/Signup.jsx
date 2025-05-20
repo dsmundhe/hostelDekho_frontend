@@ -36,7 +36,7 @@ const SignUp = () => {
 
       const imageUrl = cloudRes.data.secure_url;
 
-      const response = await axios.post("http://localhost:4000/user/signup", {
+      const response = await axios.post("https://hoste-dekho-backend.vercel.app/user/signup", {
         name,
         email,
         password,
@@ -45,7 +45,7 @@ const SignUp = () => {
       });
 
       if (response.data.msg === "Signup successful!") {
-        const loginResponse = await axios.post("http://localhost:4000/user/login", {
+        const loginResponse = await axios.post("https://hoste-dekho-backend.vercel.app/user/login", {
           email,
           password,
         });

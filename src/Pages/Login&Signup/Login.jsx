@@ -20,7 +20,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:4000/user/login", { email, password });
+      const response = await axios.post("https://hoste-dekho-backend.vercel.app/user/login", { email, password });
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);

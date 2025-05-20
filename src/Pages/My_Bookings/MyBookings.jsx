@@ -19,7 +19,7 @@ const MyBookings = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:4000/user/getbooking",
+          "https://hoste-dekho-backend.vercel.app/user/getbooking",
           { email: user.email },
           {
             headers: {
