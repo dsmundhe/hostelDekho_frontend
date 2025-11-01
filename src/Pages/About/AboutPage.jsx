@@ -94,19 +94,9 @@ const AboutPage = () => {
                   "https://res.cloudinary.com/dmchat-app/image/upload/v1747760138/vqzkmdvyopbczlh7x2vh.png",
               },
               {
-                name: "Amogh Nagarkar",
-                image:
-                  "https://res.cloudinary.com/dmchat-app/image/upload/v1747760216/n615rsbsfpar3n0aktdb.png",
-              },
-              {
                 name: "Maithili Ghodmare",
                 image:
                   "https://res.cloudinary.com/dmchat-app/image/upload/v1747760180/ecjp4twviiv5w1ymrpjy.png",
-              },
-              {
-                name: "Yogesh Nande",
-                image:
-                  "https://res.cloudinary.com/dmchat-app/image/upload/v1747760251/t7ahnbwufs8iqvybkzhf.png",
               },
               {
                 name: "Sahil Atram",
